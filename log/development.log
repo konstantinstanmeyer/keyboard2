@@ -1,0 +1,480 @@
+  [1m[35m (181.5ms)[0m  [1m[35mCREATE DATABASE "keyboard_backend_development" ENCODING = 'unicode'[0m
+  [1m[35m (120.9ms)[0m  [1m[35mCREATE DATABASE "keyboard_backend_test" ENCODING = 'unicode'[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8759449042862166705)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (5.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20221101223140)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221101223140"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (2.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-11-01 22:32:01.889270"], ["updated_at", "2022-11-01 22:32:01.889270"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8759449042862166705)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8759449042862166705)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddJtiToUsers (20221101223908)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "jti" character varying NOT NULL[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_jti" ON "users" ("jti")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221101223908"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(8759449042862166705)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/signup" for ::1 at 2022-11-01 17:06:40 -0600
+Started POST "/signup" for ::1 at 2022-11-01 17:06:40 -0600
+Started POST "/signup" for ::1 at 2022-11-01 17:06:40 -0600
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Users::RegistrationsController#create as */*
+Processing by Users::RegistrationsController#create as */*
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}}
+  Parameters: {"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}}
+  Parameters: {"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (3.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (7.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "jti") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "test@test.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2022-11-01 23:06:42.095145"], ["updated_at", "2022-11-01 23:06:42.095145"], ["jti", "ee992dc6-e0b6-4b5e-b552-084f917a28d4"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 809ms (ActiveRecord: 73.7ms | Allocations: 46878)
+
+
+  
+ActionDispatch::Request::Session::DisabledSessionError (Your application has sessions disabled. To write to the session you must first configure a session store):
+  
+actionpack (7.0.4) lib/action_dispatch/request/session.rb:253:in `load_for_write!'
+actionpack (7.0.4) lib/action_dispatch/request/session.rb:151:in `[]='
+warden (1.2.9) lib/warden/session_serializer.rb:27:in `store'
+warden (1.2.9) lib/warden/proxy.rb:187:in `set_user'
+devise (4.8.1) lib/devise/controllers/sign_in_out.rb:53:in `sign_in'
+devise (4.8.1) app/controllers/devise/registrations_controller.rb:106:in `sign_up'
+devise (4.8.1) app/controllers/devise/registrations_controller.rb:24:in `create'
+actionpack (7.0.4) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (7.0.4) lib/abstract_controller/base.rb:215:in `process_action'
+actionpack (7.0.4) lib/action_controller/metal/rendering.rb:53:in `process_action'
+actionpack (7.0.4) lib/abstract_controller/callbacks.rb:234:in `block in process_action'
+activesupport (7.0.4) lib/active_support/callbacks.rb:107:in `run_callbacks'
+actionpack (7.0.4) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.4) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.4) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.4) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.4) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.4) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.4) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.4) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.4) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.4) lib/abstract_controller/base.rb:151:in `process'
+actionpack (7.0.4) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/routing/mapper.rb:18:in `block in <class:Constraints>'
+actionpack (7.0.4) lib/action_dispatch/routing/mapper.rb:48:in `serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:852:in `call'
+warden-jwt_auth (0.7.0) lib/warden/jwt_auth/middleware/token_dispatcher.rb:20:in `call'
+warden-jwt_auth (0.7.0) lib/warden/jwt_auth/middleware/revocation_manager.rb:21:in `call'
+rack (2.2.4) lib/rack/builder.rb:244:in `call'
+warden-jwt_auth (0.7.0) lib/warden/jwt_auth/middleware.rb:22:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+activerecord (7.0.4) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 902ms (Views: 0.2ms | ActiveRecord: 48.1ms | Allocations: 70572)
+
+
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 996ms (Views: 0.2ms | ActiveRecord: 27.9ms | Allocations: 74267)
+
+
+Started POST "/signup" for ::1 at 2022-11-01 17:08:18 -0600
+Started POST "/signup" for ::1 at 2022-11-01 17:08:18 -0600
+Started POST "/signup" for ::1 at 2022-11-01 17:08:18 -0600
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Users::RegistrationsController#create as */*
+Processing by Users::RegistrationsController#create as */*
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}}
+  Parameters: {"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}}
+  Parameters: {"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 416ms (Views: 0.2ms | ActiveRecord: 21.0ms | Allocations: 45457)
+
+
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (9.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 501ms (Views: 0.2ms | ActiveRecord: 41.8ms | Allocations: 50107)
+
+
+  [1m[36mUser Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 508ms (Views: 0.1ms | ActiveRecord: 11.8ms | Allocations: 52912)
+
+
+Started POST "/signup" for ::1 at 2022-11-01 17:09:17 -0600
+Started POST "/signup" for ::1 at 2022-11-01 17:09:17 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}}
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}}
+Started POST "/signup" for ::1 at 2022-11-01 17:09:17 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 599ms (Views: 0.1ms | ActiveRecord: 0.8ms | Allocations: 4638)
+
+
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 572ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 6825)
+
+
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 641ms (Views: 0.1ms | ActiveRecord: 3.6ms | Allocations: 12232)
+
+
+Started POST "/signup" for ::1 at 2022-11-01 17:10:35 -0600
+Started POST "/signup" for ::1 at 2022-11-01 17:10:35 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Completed 422 Unprocessable Entity in 10ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1330)
+
+
+Completed 422 Unprocessable Entity in 22ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 3320)
+
+
+Started POST "/signup" for ::1 at 2022-11-01 17:10:38 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Completed 422 Unprocessable Entity in 27ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1229)
+
+
+Started POST "/signup" for ::1 at 2022-11-01 17:10:39 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Completed 422 Unprocessable Entity in 15ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1229)
+
+
+Started POST "/signup" for ::1 at 2022-11-01 17:10:39 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Completed 422 Unprocessable Entity in 4ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1229)
+
+
+Started POST "/signup" for ::1 at 2022-11-01 17:11:31 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Started POST "/signup" for ::1 at 2022-11-01 17:11:31 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Completed 422 Unprocessable Entity in 20ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 2132)
+
+
+Completed 422 Unprocessable Entity in 18ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 2597)
+
+
+Started POST "/signup" for ::1 at 2022-11-01 17:11:34 -0600
+Started POST "/signup" for ::1 at 2022-11-01 17:11:34 -0600
+Started POST "/signup" for ::1 at 2022-11-01 17:11:34 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Completed 422 Unprocessable Entity in 12ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 2563)
+
+
+Completed 422 Unprocessable Entity in 12ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 3247)
+
+
+Completed 422 Unprocessable Entity in 20ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 3966)
+
+
+Started POST "/signup" for ::1 at 2022-11-01 17:12:59 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Completed 422 Unprocessable Entity in 7ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1229)
+
+
+Started POST "/signup" for ::1 at 2022-11-01 17:12:59 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Completed 422 Unprocessable Entity in 8ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 1229)
+
+
+Started POST "/signup" for ::1 at 2022-11-01 17:12:59 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Completed 422 Unprocessable Entity in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1229)
+
+
+Started POST "/signup" for ::1 at 2022-11-01 17:14:02 -0600
+Started POST "/signup" for ::1 at 2022-11-01 17:14:02 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Completed 422 Unprocessable Entity in 20ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 1925)
+
+
+Completed 422 Unprocessable Entity in 19ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 2597)
+
+
+Started POST "/signup" for ::1 at 2022-11-01 17:14:04 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Started POST "/signup" for ::1 at 2022-11-01 17:14:04 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Completed 422 Unprocessable Entity in 13ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 2246)
+
+
+Completed 422 Unprocessable Entity in 12ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 2597)
+
+
+Started POST "/signup" for ::1 at 2022-11-01 17:14:04 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Completed 422 Unprocessable Entity in 6ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1229)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-11-01 17:14:24 -0600
+Started POST "/signup" for 127.0.0.1 at 2022-11-01 17:14:24 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Completed 422 Unprocessable Entity in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1229)
+
+
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Completed 422 Unprocessable Entity in 4ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1229)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-11-01 17:14:27 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Started POST "/signup" for 127.0.0.1 at 2022-11-01 17:14:27 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Started POST "/signup" for 127.0.0.1 at 2022-11-01 17:14:27 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Completed 422 Unprocessable Entity in 89ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 3617)
+
+
+Completed 422 Unprocessable Entity in 59ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 3781)
+
+
+Completed 422 Unprocessable Entity in 47ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 3963)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-11-01 17:17:46 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "registration"=>{"email"=>"test@test.com"}}
+Started POST "/signup" for 127.0.0.1 at 2022-11-01 17:17:46 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "registration"=>{"email"=>"test@test.com"}}
+Completed 422 Unprocessable Entity in 9ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1960)
+
+
+Completed 422 Unprocessable Entity in 27ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 2596)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-11-01 17:18:17 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Completed 422 Unprocessable Entity in 8ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1229)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-11-01 17:18:17 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Completed 422 Unprocessable Entity in 5ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1229)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-11-01 17:18:18 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Completed 422 Unprocessable Entity in 4ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1230)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-11-01 17:18:18 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Completed 422 Unprocessable Entity in 4ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1229)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-11-01 17:18:18 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Completed 422 Unprocessable Entity in 5ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1229)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-11-01 17:18:33 -0600
+Started POST "/signup" for 127.0.0.1 at 2022-11-01 17:18:33 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Completed 422 Unprocessable Entity in 13ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1754)
+
+
+Completed 422 Unprocessable Entity in 15ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 2596)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-11-01 17:18:33 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Completed 422 Unprocessable Entity in 19ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1229)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-11-01 17:18:38 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Started POST "/signup" for 127.0.0.1 at 2022-11-01 17:18:38 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Completed 422 Unprocessable Entity in 43ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 2088)
+
+
+Completed 422 Unprocessable Entity in 40ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 2430)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-11-01 17:18:38 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Completed 422 Unprocessable Entity in 5ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 1229)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-11-01 17:18:56 -0600
+  
+SyntaxError (/Users/konstantinstanmeyer/Development/code/practices/keyboard2/app/controllers/users/sessions_controller.rb:26: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/users/sessions_controller.rb:26: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/users/sessions_controller.rb:26: syntax error, unexpected end-of-input, expecting `end'
+Started POST "/login" for 127.0.0.1 at 2022-11-01 17:18:56 -0600
+  
+SyntaxError (/Users/konstantinstanmeyer/Development/code/practices/keyboard2/app/controllers/users/sessions_controller.rb:26: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/users/sessions_controller.rb:26: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/users/sessions_controller.rb:26: syntax error, unexpected end-of-input, expecting `end'
+Started POST "/signup" for 127.0.0.1 at 2022-11-01 17:19:07 -0600
+Started POST "/signup" for 127.0.0.1 at 2022-11-01 17:19:07 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Completed 422 Unprocessable Entity in 5ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 1229)
+
+
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Completed 422 Unprocessable Entity in 9ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1229)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-11-01 17:21:11 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Started POST "/signup" for 127.0.0.1 at 2022-11-01 17:21:11 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Completed 422 Unprocessable Entity in 68ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 2441)
+
+
+Completed 422 Unprocessable Entity in 52ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 2596)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-11-01 17:21:11 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Completed 422 Unprocessable Entity in 101ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1229)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-11-01 17:21:43 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Started POST "/signup" for 127.0.0.1 at 2022-11-01 17:21:43 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Completed 422 Unprocessable Entity in 190ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 2419)
+
+
+Completed 422 Unprocessable Entity in 79ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 2596)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-11-01 17:21:46 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Started POST "/signup" for 127.0.0.1 at 2022-11-01 17:21:46 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Completed 422 Unprocessable Entity in 60ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 2441)
+
+
+Completed 422 Unprocessable Entity in 10ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 2488)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-11-01 17:21:46 -0600
+Processing by Users::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "registration"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+Completed 422 Unprocessable Entity in 5ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1229)
+
+

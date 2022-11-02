@@ -4254,3 +4254,127 @@ Filter chain halted as :verify_signed_out_user rendered or redirected
 Completed 401 Unauthorized in 3ms (Views: 1.8ms | ActiveRecord: 0.0ms | Allocations: 184)
 
 
+Started DELETE "/logout" for ::1 at 2022-11-02 14:01:48 -0600
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Users::SessionsController#destroy as */*
+  Parameters: {"session"=>{}}
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 401 Unauthorized in 4ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 334)
+
+
+Started POST "/current_user" for ::1 at 2022-11-02 14:08:11 -0600
+  
+ActionController::RoutingError (No route matches [POST] "/current_user"):
+  
+Started GET "/current_user" for ::1 at 2022-11-02 14:08:13 -0600
+Processing by CurrentUserController#index as */*
+  Parameters: {"user"=>{"email"=>"bob@bob2.com", "password"=>"[FILTERED]"}, "current_user"=>{"user"=>{"email"=>"bob@bob2.com", "password"=>"[FILTERED]"}}}
+Completed 401 Unauthorized in 5ms (Allocations: 103)
+
+
+Started DELETE "/logout" for ::1 at 2022-11-02 14:16:56 -0600
+Processing by Users::SessionsController#destroy as */*
+  Parameters: {"session"=>{}}
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 401 Unauthorized in 12ms (Views: 5.6ms | Allocations: 183)
+
+
+Started DELETE "/logout" for ::1 at 2022-11-02 14:17:18 -0600
+Processing by Users::SessionsController#destroy as */*
+  Parameters: {"session"=>{}}
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | Allocations: 184)
+
+
+Started DELETE "/logout" for ::1 at 2022-11-02 14:17:53 -0600
+Processing by Users::SessionsController#destroy as */*
+  Parameters: {"session"=>{}}
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | Allocations: 184)
+
+
+Started DELETE "/logout" for ::1 at 2022-11-02 14:18:20 -0600
+Processing by Users::SessionsController#destroy as */*
+  Parameters: {"session"=>{}}
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 401 Unauthorized in 4ms (Views: 0.2ms | Allocations: 330)
+
+
+Started DELETE "/logout" for ::1 at 2022-11-02 14:18:31 -0600
+Processing by Users::SessionsController#destroy as */*
+  Parameters: {"session"=>{}}
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | Allocations: 255)
+
+
+Started DELETE "/logout" for ::1 at 2022-11-02 14:19:06 -0600
+Processing by Users::SessionsController#destroy as */*
+  Parameters: {"session"=>{}}
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | Allocations: 254)
+
+
+Started DELETE "/logout" for ::1 at 2022-11-02 14:23:00 -0600
+Processing by Users::SessionsController#destroy as */*
+  Parameters: {"session"=>{}}
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | Allocations: 254)
+
+
+Started DELETE "/logout" for ::1 at 2022-11-02 14:23:34 -0600
+Processing by Users::SessionsController#destroy as */*
+  Parameters: {"session"=>{}}
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | Allocations: 254)
+
+
+Started DELETE "/logout" for ::1 at 2022-11-02 14:23:38 -0600
+Processing by Users::SessionsController#destroy as */*
+  Parameters: {"session"=>{}}
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | Allocations: 254)
+
+
+Started DELETE "/users/logout" for ::1 at 2022-11-02 14:28:35 -0600
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [DELETE] "/users/logout"):
+  
+Started DELETE "/users/logout" for ::1 at 2022-11-02 14:28:48 -0600
+  
+ActionController::RoutingError (No route matches [DELETE] "/users/logout"):
+  
+Started DELETE "/users/signout" for ::1 at 2022-11-02 14:28:57 -0600
+  
+ActionController::RoutingError (No route matches [DELETE] "/users/signout"):
+  
+Started DELETE "/users/signout" for ::1 at 2022-11-02 14:32:29 -0600
+  
+ActionController::RoutingError (No route matches [DELETE] "/users/signout"):
+  
+Started DELETE "/logout" for ::1 at 2022-11-02 14:32:37 -0600
+Processing by Users::SessionsController#destroy as */*
+  Parameters: {"session"=>{}}
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 401 Unauthorized in 4ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 458)
+
+
+Started DELETE "/logout" for ::1 at 2022-11-02 14:33:03 -0600
+Processing by Users::SessionsController#destroy as */*
+  Parameters: {"session"=>{}}
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 254)
+
+
+Started DELETE "/logout" for ::1 at 2022-11-02 14:35:30 -0600
+Processing by Users::SessionsController#destroy as */*
+  Parameters: {"session"=>{}}
+Completed 401 Unauthorized in 17ms (Views: 0.2ms | Allocations: 13498)
+
+
+Started DELETE "/logout" for ::1 at 2022-11-02 14:36:50 -0600
+Processing by Users::SessionsController#destroy as */*
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | Allocations: 339)
+
+

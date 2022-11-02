@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'private/test'
   get '/current_user', to: 'current_user#index'
+  match '/users', to: 'users#index', via: 'get'
   devise_for :users, path: '', path_names: {
     sign_in: 'login',
     sign_out: 'logout',

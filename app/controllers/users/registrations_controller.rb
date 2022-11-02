@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController 
-  wrap_parameters format: []
   respond_to :json
 
   private

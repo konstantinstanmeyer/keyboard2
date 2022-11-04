@@ -3,7 +3,16 @@
 class Users::RegistrationsController < Devise::RegistrationsController 
   respond_to :json
 
+  def create
+    @user = User.create!(user_params)
+    render json: @user
+  end
+
   private
+
+  def set_default_avatar
+    
+  end
 
   def respond_with(resource, _opts = {})
     if resource.persisted?

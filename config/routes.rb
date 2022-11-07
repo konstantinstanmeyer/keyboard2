@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/users/current'
+  get '/users/current', to: 'users#current'
   get '/current_user', to: 'current_user#index'
   match '/users', to: 'users#index', via: 'get'
   match '/high_score', to: 'current_user#high_score', via: 'patch'

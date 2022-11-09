@@ -29,6 +29,6 @@ class CurrentUserController < ApplicationController
   private 
 
   def user_params
-    params.permit(:email, :password, :high_score, :avatar)   
+    params.permit(:email, :password, :high_score, :avatar, :view_origin, :view_high_score, :view_profile)   
   end
 end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :scores, only: [:create, :index, :show]
   get '/users/current', to: 'users#current'
   get '/current_user', to: 'current_user#index'
   match '/users', to: 'users#index', via: 'get'

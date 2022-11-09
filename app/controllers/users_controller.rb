@@ -10,9 +10,15 @@ class UsersController < ApplicationController
         render json: @user
     end
 
+    def destroy
+        @user = User.find(params[:id])
+        @user.destroy
+        redirect_to users_path, notice: 'User deleted.'
+      end
+
     private 
 
     def user_params
-        params.permit(:email, :password, :high_score, :avatar)   
+        params.permit(:email, :password, :high_score, :view_origin, :view_high_score, :view_profile)
     end
 end

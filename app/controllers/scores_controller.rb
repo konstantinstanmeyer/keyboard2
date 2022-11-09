@@ -1,5 +1,4 @@
 class ScoresController < ApplicationController
-    before_action :authenticate_user!, only: [:create]
 
     def index
         @scores = Score.all
@@ -19,7 +18,7 @@ class ScoresController < ApplicationController
     private
 
     def score_params
-        params.permit(:accuracy, :score, :user_id, :style)
+        params.permit(:accuracy, :score, :user_id, :style, :word_length)
     end
 
 end

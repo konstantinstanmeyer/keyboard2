@@ -9,15 +9,14 @@ class CurrentUserController < ApplicationController
     render json: user, status: :ok
   end
 
+  def save_score
+    score = Score.create!(score_params)
+    render json: score, status: :created
+  end
+
   def update
     user = current_user.update!(user_params)
     render json: user
-  end
-
-  def high_score
-    user = current_user
-    user.update_attribute(:high_score, params[:high_score])
-    render json: user, status: :ok
   end
 
   def set_avatar
@@ -27,6 +26,10 @@ class CurrentUserController < ApplicationController
   end
 
   private 
+
+  def score_params
+    params.permit(:score, :accuracy, :user_id, :style)
+  end
 
   def user_params
     params.permit(:email, :password, :high_score, :avatar, :view_origin, :view_high_score, :view_profile)   

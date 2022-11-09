@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :scores, only: [:create, :index, :show]
   get '/users/current', to: 'users#current'
   get '/current_user', to: 'current_user#index'
+  post '/scores/save', to: 'current_user#save_score'
   match '/users', to: 'users#index', via: 'get'
   match '/high_score', to: 'current_user#high_score', via: 'patch'
   match '/avatar', to: 'current_user#set_avatar', via: 'post'

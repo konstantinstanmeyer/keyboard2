@@ -1,5 +1,6 @@
 class CurrentUserController < ApplicationController
   before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: [:show_scores]
   def index
     render json: current_user, status: :ok
   end
@@ -12,6 +13,18 @@ class CurrentUserController < ApplicationController
   def save_score
     score = Score.create!(score_params)
     render json: score, status: :created
+  end
+
+  def show_scores
+    user = User.find(params[:id])
+    scores = user.scores
+    render json: scores, status: :ok
+  end
+
+  def update_username
+    user = current_user
+    user.update_attibute(:username, params[:username])
+    render json: user, status: :ok
   end
 
   def update

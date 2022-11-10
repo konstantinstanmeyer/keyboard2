@@ -21,9 +21,12 @@ class CurrentUserController < ApplicationController
     render json: scores, status: :ok
   end
 
-  def update_username
+  def update_user
     user = current_user
-    user.update_attibute(:username, params[:username])
+    user.update_attribute(:username, params[:username])
+    user.update_attribute(:view_origin?, params[:view_origin?])
+    user.update_attribute(:view_profile?, params[:view_profile?])
+    user.update_attribute(:view_high_score?, params[:view_high_score?])
     render json: user, status: :ok
   end
 

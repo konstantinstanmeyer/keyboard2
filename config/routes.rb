@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   get '/users/scores/:id', to: 'current_user#show_scores'
   match '/users', to: 'users#index', via: 'get'
   get 'scores/user/:id', to: 'score#user_scores'
-  match '/high_score', to: 'current_user#high_score', via: 'patch'
   match '/avatar', to: 'current_user#set_avatar', via: 'post'
+  patch '/current_user/update', to: 'current_user#update_user'
   devise_for :users, path: '', path_names: {
     sign_in: 'login',
     sign_out: 'logout',

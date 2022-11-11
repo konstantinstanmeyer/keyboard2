@@ -20,6 +20,15 @@ class ScoreController < ApplicationController
         render json: @user, serializer: UserScoreSerializerSerializer
     end
 
+    def get_words
+        @words = [""]
+        params[:count].to_i.times do
+            @words[0] << Score::WORDS.sample
+            @words[0] << " "
+        end
+        render json: @words
+    end
+
     private
 
     def score_params

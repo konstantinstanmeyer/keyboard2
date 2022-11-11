@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   match '/users', to: 'users#index', via: 'get'
   get 'scores/user/:id', to: 'score#user_scores'
   match '/avatar', to: 'current_user#set_avatar', via: 'post'
+  get '/words/:count', to: 'score#get_words'
   patch '/current_user/update', to: 'current_user#update_user'
   devise_for :users, path: '', path_names: {
     sign_in: 'login',

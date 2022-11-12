@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   match '/avatar', to: 'current_user#set_avatar', via: 'post'
   get '/words/:count', to: 'score#get_words'
   patch '/current_user/update', to: 'current_user#update_user'
+  get '/bacon', to: 'words#fetch'
+  get '/quote/en', to: 'words#quote'
   devise_for :users, path: '', path_names: {
     sign_in: 'login',
     sign_out: 'logout',

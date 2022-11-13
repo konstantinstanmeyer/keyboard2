@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   resources :score, only: [:create, :index, :show]
+  get '/quote/:lang', to: 'words#get_quote'
+  get '/words/quote/:count', to: 'users#get_quote'
   get '/users/current', to: 'users#current'
   get '/current_user', to: 'current_user#index'
   post '/scores/save', to: 'current_user#save_score'
@@ -10,7 +12,6 @@ Rails.application.routes.draw do
   get '/words/:count', to: 'score#get_words'
   patch '/current_user/update', to: 'current_user#update_user'
   get '/bacon', to: 'words#fetch'
-  get '/quote/en', to: 'words#quote'
   devise_for :users, path: '', path_names: {
     sign_in: 'login',
     sign_out: 'logout',

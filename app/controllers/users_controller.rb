@@ -10,6 +10,10 @@ class UsersController < ApplicationController
         render json: @user
     end
 
+    def get_quote
+        puts params[:count]
+    end
+
     def destroy
         @user = User.find(params[:id])
         @user.destroy

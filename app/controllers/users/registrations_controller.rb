@@ -4,6 +4,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   respond_to :json
   before_action :authenticate_user!, only: [:create]
 
+  # validates user params and creates user instance w/ devise
   def create
     @user = User.create!(user_params)
     render json: @user
@@ -11,10 +12,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   private
 
+  # validates email and password presence, within a user object
   def user_params
     params.require(:user).permit(:email, :password)
   end
 
+  # returns successful json response or handles unprocessable entity error
   def respond_with(resource, _opts = {})
     if resource.persisted?
       render json: {

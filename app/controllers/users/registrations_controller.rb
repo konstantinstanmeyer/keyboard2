@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# utilizes devise api for user authentication and authorization | docs: https://github.com/heartcombo/devise
 class Users::RegistrationsController < Devise::RegistrationsController 
   respond_to :json
   before_action :authenticate_user!, only: [:create]

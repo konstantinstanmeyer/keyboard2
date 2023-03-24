@@ -6,11 +6,13 @@
 # Read more: https://github.com/cyu/rack-cors
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
+  # temporarily allow origins
   allow do
     origins "*"
 
     resource "*",
       headers: :any,
+      # allow authorization header for devise api requests
       expose: ['access-token', 'expiry', 'token-type', 'Authorization'],
       methods: [:get, :post, :put, :patch, :delete, :options, :head]
   end

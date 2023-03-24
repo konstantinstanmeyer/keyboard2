@@ -3,12 +3,14 @@
 class Users::SessionsController < Devise::SessionsController
   respond_to :json
 
+  # utilize built-in create method from devise api
   def create 
     super
   end
 
   private
   
+  # success/error response handling | devise api
   def respond_with(resource, _opts = {})
     render json: {
       status: {code: 200, message: 'Logged in sucessfully.'},
@@ -16,6 +18,7 @@ class Users::SessionsController < Devise::SessionsController
     }, status: :ok
   end
   
+  # delete success/error response requiring session to be sent within authorization header
   def respond_to_on_destroy
     if current_user
       render json: {

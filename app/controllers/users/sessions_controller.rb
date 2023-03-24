@@ -18,7 +18,7 @@ class Users::SessionsController < Devise::SessionsController
     }, status: :ok
   end
   
-  # delete success/error response requiring session to be sent within authorization header
+  # deletion success/error response requiring session to be sent within authorization header
   def respond_to_on_destroy
     if current_user
       render json: {
